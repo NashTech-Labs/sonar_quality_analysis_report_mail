@@ -12,6 +12,8 @@ If there is not even a single Criteria match, we will consider it a failure and 
 # Steps
 1. Clone this repo
 
+2. Move the `sonar_quality_check.yml` to .github/workflows directory and push the code
+
 2. Configure the Secret variables by going to GithubProject > Settings > Secrets, and clicking New repository secret.
 
     Add the following 

@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches:
-      - sonar_quality_analysis
+      - main
   schedule:
     - cron:  '0 0 * * MON'
 
