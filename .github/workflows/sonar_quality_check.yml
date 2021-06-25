@@ -103,6 +103,6 @@ jobs:
           </pre>
           </body>
           </html>" > mail.txt
-
+          cat mail.txt
           sendmail ${{secrets.EMAIL}} < mail.txt
           rm QUALITY_GATES_PASSED.txt UPTO_DATE_ANALYSIS.txt QUALITY_GATES_FAILED.txt ARCHIVED_PROJECTS.txt REMOVED_ARCHIVED_PROJECTS.txt
