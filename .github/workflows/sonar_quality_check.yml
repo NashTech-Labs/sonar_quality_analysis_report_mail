@@ -80,9 +80,9 @@ jobs:
           grep -vxFf ARCHIVED_PROJECT_NAMES.txt ALL_PROJECT_REPORT.txt | awk ' {print;} NR % 1 == 0 { print ""; }' > REMOVED_ARCHIVED_PROJECTS.txt 
           grep -vxFf QUALITY_GATES_PASSED.txt REMOVED_ARCHIVED_PROJECTS.txt | awk ' {print;} NR % 1 == 0 { print ""; }' | sed -r '/^\s*$/d' > QUALITY_GATES_FAILED.txt
           
-          echo "To: Knolders <${{secrets.EMAIL}}>
-          Subject: KNOLDUS SONAR ANALYSIS | WEEKLY REPORT | $TODAYS_DATE
-          From: Knoldus Sonar <support@knoldus.com>
+          echo "To: Sonar<${{secrets.EMAIL}}>
+          Subject: SONAR ANALYSIS | WEEKLY REPORT | $TODAYS_DATE
+          From: Sonar <support@sonar.com>
           Content-Type: text/html; charset="utf8"
           <html>
           <head>
@@ -103,6 +103,5 @@ jobs:
           </pre>
           </body>
           </html>" > mail.txt
-          cat mail.txt
           sendmail ${{secrets.EMAIL}} < mail.txt
           rm QUALITY_GATES_PASSED.txt UPTO_DATE_ANALYSIS.txt QUALITY_GATES_FAILED.txt ARCHIVED_PROJECTS.txt REMOVED_ARCHIVED_PROJECTS.txt
